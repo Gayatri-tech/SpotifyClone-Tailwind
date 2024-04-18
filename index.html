@@ -99,7 +99,7 @@
         </div>
       </div>
       <div
-        class="right w-[75vw] bg-[#121212] mt-2 mr-2 rounded-lg relative min-h-screen"
+        class="right w-[75vw] bg-[#121212] mt-2 mr-2 rounded-lg relative min-h-full"
       >
         <div
           class="nav flex justify-between items-center rounded-t-lg p-2 bg-[#222222]"
@@ -142,7 +142,7 @@
             Spotify Playlists
           </h1>
           <div
-            class="cardContainer h-[70vh] flex flex-wrap overflow-y-scroll custom-scrollbar m-1 p-2 gap-2"
+            class="cardContainer h-[70vh] flex flex-wrap overflow-y-scroll custom-scrollbar p-2 gap-2"
           >
             <div
               class="group card w-[185px] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
@@ -159,14 +159,40 @@
               </p>
             </div>
           </div>
-          <div class="playbar absolute bottom-0 bg-white w-full p-3">
-            <div class="songInfo"></div>
-            <div class="songBtns flex justify-center gap-3">
-              <img src="Media/previousBtn.svg" alt="" />
-              <img class="playBtn" src="Media/playBtn.svg" alt="" />
-              <img src="Media/nextBtn.svg" alt="" />
+          <div
+            class="playbar absolute bottom-1 bg-[#333333] rounded-lg w-[73vw] p-3 h-14"
+          >
+            <div
+              class="seekbar bg-white h-1 w-[72vw] absolute bottom-2 rounded-lg"
+            >
+              <div
+                class="circle w-3 h-3 rounded-full bg-white relative bottom-1 left-0 cursor-pointer"
+              ></div>
             </div>
-            <div class="songTime"></div>
+            <div class="flex justify-between">
+              <div class="songInfo"></div>
+              <div class="songBtns flex justify-center gap-3 invert">
+                <img
+                  class="cursor-pointer"
+                  id="previous"
+                  src="Media/previousBtn.svg"
+                  alt=""
+                />
+                <img
+                  class="cursor-pointer"
+                  id="play"
+                  src="Media/playBtn.svg"
+                  alt=""
+                />
+                <img
+                  class="cursor-pointer"
+                  id="next"
+                  src="Media/nextBtn.svg"
+                  alt=""
+                />
+              </div>
+              <div class="songTime"></div>
+            </div>
           </div>
         </div>
       </div>
