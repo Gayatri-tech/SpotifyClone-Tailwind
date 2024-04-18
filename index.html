@@ -34,11 +34,13 @@
   </head>
   <body class="bg-black text-white font-roboto overflow-x-hidden">
     <div class="container flex min-w-full">
-      <div class="left w-[25vw] p-1 h-screen">
+      <div
+        class="left md:w-[25vw] md:static p-1 h-screen absolute -left-[200%]"
+      >
         <div class="home rounded-lg bg-[#121212] m-1 p-5">
           <div class="logo">
             <img
-              class="invert cursor-pointer"
+              class="invert cursor-pointer w-28"
               src="Media/logo.svg"
               alt="logo"
             />
@@ -60,7 +62,7 @@
             <h2 class="">Your library</h2>
           </div>
           <div
-            class="songsList text-xs h-[50vh] custom-scrollbar overflow-y-scroll mt-3"
+            class="songsList text-xs h-[50vh] custom-scrollbar overflow-y-scroll mt-3 p-2"
           >
             <ol class="list-decimal"></ol>
           </div>
@@ -99,7 +101,7 @@
         </div>
       </div>
       <div
-        class="right w-[75vw] bg-[#121212] mt-2 mr-2 rounded-lg relative min-h-full"
+        class="right md:w-[75vw] bg-[#121212] mt-2 mr-2 rounded-lg relative min-h-full w-full"
       >
         <div
           class="nav flex justify-between items-center rounded-t-lg p-2 bg-[#222222]"
@@ -160,10 +162,10 @@
             </div>
           </div>
           <div
-            class="playbar absolute bottom-1 bg-[#333333] rounded-lg w-[73vw] p-3 h-14"
+            class="playbar absolute bottom-1 bg-[#333333] rounded-lg w-[73vw] p-3 h-14 md:w-full"
           >
             <div
-              class="seekbar bg-white h-1 w-[72vw] absolute bottom-2 rounded-lg"
+              class="seekbar bg-white h-1 w-[72vw] absolute bottom-2 rounded-lg cursor-pointer md:w-[96vw]"
             >
               <div
                 class="circle w-3 h-3 rounded-full bg-white relative bottom-1 left-0 cursor-pointer"
