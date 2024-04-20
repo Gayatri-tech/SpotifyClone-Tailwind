@@ -33,36 +33,47 @@
     </style>
   </head>
   <body class="bg-black text-white font-roboto overflow-x-hidden">
-    <div class="container flex min-w-full">
+    <div class="container flex min-w-full bg-black">
       <div
-        class="left md:w-[25vw] md:static p-1 h-screen absolute -left-[200%]"
+        class="left p-1 bg-black absolute -left-[200%] transition-all duration-300 z-10 w-4/5 sm:w-3/5 md:w-[45%] lg:w-2/5 xl:static"
       >
-        <div class="home rounded-lg bg-[#121212] m-1 p-5">
+        <div
+          class="close absolute right-3 top-4 sm:right-6 sm:top-8 xl:hidden cursor-pointer"
+        >
+          <img class="invert w-4 sm:w-6" src="Media/close.svg" alt="" />
+        </div>
+        <div class="home rounded-lg bg-[#121212] p-2 m-1 sm:p-5">
           <div class="logo">
             <img
-              class="invert cursor-pointer w-28"
+              class="invert cursor-pointer w-16 sm:w-28"
               src="Media/logo.svg"
               alt="logo"
             />
           </div>
           <ul>
-            <li class="flex w-6 pt-5 font-semibold gap-4 cursor-pointer">
+            <li
+              class="flex w-4 sm:w-6 pt-5 font-semibold gap-4 cursor-pointer text-sm sm:text-base"
+            >
               <img class="invert" src="Media/home.svg" alt="home" />Home
             </li>
             <li
-              class="flex w-6 pt-5 font-semibold gap-4 cursor-pointer text-[#919191] items-center hover:text-white"
+              class="flex w-4 sm:w-6 pt-5 font-semibold gap-4 cursor-pointer text-[#919191] hover:text-white text-sm sm:text-base"
             >
               <img class="invert" src="Media/search.svg" alt="search" />Search
             </li>
           </ul>
         </div>
-        <div class="library rounded-lg bg-[#121212] m-1 mt-2 p-5">
+        <div class="library rounded-lg bg-[#121212] m-1 mt-2 p-3 sm:p-5 h-full">
           <div class="libTop flex gap-2 items-center">
-            <img class="w-6 invert" src="Media/library.svg" alt="library" />
-            <h2 class="">Your library</h2>
+            <img
+              class="w-4 sm:w-6 invert"
+              src="Media/library.svg"
+              alt="library"
+            />
+            <h2 class="text-sm sm:text-base">Your library</h2>
           </div>
           <div
-            class="songsList text-xs h-[50vh] custom-scrollbar overflow-y-scroll mt-3 p-2"
+            class="songsList text-xs h-[50vh] custom-scrollbar overflow-y-scroll mt-1 sm:mt-3 sm:p-2"
           >
             <ol class="list-decimal"></ol>
           </div>
@@ -101,79 +112,154 @@
         </div>
       </div>
       <div
-        class="right md:w-[75vw] bg-[#121212] mt-2 mr-2 rounded-lg relative min-h-full w-full"
+        class="right bg-[#121212] lg:mt-2 lg:mr-2 rounded-lg relative h-screen w-full xl:w-3/4"
       >
         <div
-          class="nav flex justify-between items-center rounded-t-lg p-2 bg-[#222222]"
+          class="header flex justify-between items-center rounded-t-lg p-2 bg-[#222222]"
         >
-          <div class="arrows flex gap-2">
-            <div
-              class="leftArrow bg-[#111111] w-8 h-8 rounded-full flex justify-center"
-            >
+          <div class="nav flex gap-2 items-center">
+            <div class="hamburger xl:hidden cursor-pointer">
               <img
-                class="invert w-4"
-                src="Media/left-arrow.svg"
-                alt="left-arrow"
+                class="invert w-5 sm:w-7 cursor-pointer"
+                src="Media/hamburger.svg"
+                alt=""
               />
             </div>
-            <div
-              class="rightArrow bg-[#111111] w-8 h-8 rounded-full flex justify-center"
-            >
-              <img
-                class="invert w-4"
-                src="Media/right-arrow.svg"
-                alt="right-arrow"
-              />
+            <div class="arrows flex gap-2">
+              <div
+                class="leftArrow sm:bg-[#111111] sm:w-10 sm:h-10 sm:rounded-full flex justify-center items-center"
+              >
+                <img
+                  class="invert w-4 sm:w-5"
+                  src="Media/left-arrow.svg"
+                  alt="left-arrow"
+                />
+              </div>
+              <div
+                class="rightArrow sm:bg-[#111111] sm:w-10 sm:h-10 sm:rounded-full flex justify-center items-center"
+              >
+                <img
+                  class="invert w-4 sm:w-5"
+                  src="Media/right-arrow.svg"
+                  alt="right-arrow"
+                />
+              </div>
             </div>
           </div>
           <div class="buttons space-x-5">
             <button
-              class="loginBtn text-[#919191] font-semibold hover:text-white hover:scale-105"
+              class="signupBtn text-[#919191] text-base sm:text-lg font-semibold hover:text-white hover:scale-105"
             >
               Sign up
             </button>
             <button
-              class="bg-white px-8 py-3 text-black rounded-full font-semibold loginBtn hover:scale-105 hover:bg-gray-100"
+              class="bg-white px-4 py-1 sm:px-8 sm:py-3 text-base sm:text-lg text-black rounded-full font-semibold loginBtn hover:scale-105 hover:bg-gray-100"
             >
               Log in
             </button>
           </div>
         </div>
         <div class="playlist p-1">
-          <h1 class="text-2xl pl-5 mt-6 mb-2 font-semibold">
+          <h1
+            class="text-lg sm:text-2xl pl-3 mt-4 mb-1 sm:pl-5 sm:mt-6 sm:mb-2 font-semibold"
+          >
             Spotify Playlists
           </h1>
           <div
-            class="cardContainer h-[70vh] flex flex-wrap overflow-y-scroll custom-scrollbar p-2 gap-2"
+            class="cardContainer flex flex-wrap justify-center items-center md:justify-start md:items-center overflow-y-auto custom-scrollbar p-1 sm:p-2 gap-2"
           >
             <div
-              class="group card w-[185px] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
+              data-folder="ncs"
+              class="group card w-[85vw] sm:w-[45vw] md:w-[30vw] lg:w-[15vw] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
             >
               <img class="rounded-lg" src="Media/card1.jpg" alt="image" />
               <div
-                class="play bg-green-500 w-12 h-12 p-3 rounded-full absolute bottom-[90px] right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
+                class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-10 lg:h-10 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[90px] right-4 sm:bottom-[100px] sm:right-12 md:right-6 lg:bottom-[122px] lg:right-3 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
               >
-                <img class="w-7" src="Media/play.svg" alt="play" />
+                <img
+                  class="w-7 sm:w-8 lg:w-6"
+                  src="Media/play.svg"
+                  alt="play"
+                />
               </div>
-              <h2 class="text-lg p-1">lofi beats</h2>
-              <p class="text-sm pl-1 text-[#919191]">
+              <h2 class="text-lg sm:text-xl p-1">lofi beats</h2>
+              <p class="text-sm sm:text-base pl-1 text-[#919191]">
+                chill beats, lofi vibes, new tracks every week...
+              </p>
+            </div>
+
+            <div
+              class="group card w-[85vw] sm:w-[45vw] md:w-[30vw] lg:w-[15vw] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
+            >
+              <img class="rounded-lg" src="Media/card1.jpg" alt="image" />
+              <div
+                class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-10 lg:h-10 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[90px] right-4 sm:bottom-[100px] sm:right-12 md:right-6 lg:bottom-[122px] lg:right-3 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
+              >
+                <img
+                  class="w-7 sm:w-8 lg:w-6"
+                  src="Media/play.svg"
+                  alt="play"
+                />
+              </div>
+              <h2 class="text-lg sm:text-xl p-1">lofi beats</h2>
+              <p class="text-sm sm:text-base pl-1 text-[#919191]">
+                chill beats, lofi vibes, new tracks every week...
+              </p>
+            </div>
+            <div
+              class="group card w-[85vw] sm:w-[45vw] md:w-[30vw] lg:w-[15vw] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
+            >
+              <img class="rounded-lg" src="Media/card1.jpg" alt="image" />
+              <div
+                class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-10 lg:h-10 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[90px] right-4 sm:bottom-[100px] sm:right-12 md:right-6 lg:bottom-[122px] lg:right-3 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
+              >
+                <img
+                  class="w-7 sm:w-8 lg:w-6"
+                  src="Media/play.svg"
+                  alt="play"
+                />
+              </div>
+              <h2 class="text-lg sm:text-xl p-1">lofi beats</h2>
+              <p class="text-sm sm:text-base pl-1 text-[#919191]">
+                chill beats, lofi vibes, new tracks every week...
+              </p>
+            </div>
+            <div
+              class="group card w-[85vw] sm:w-[45vw] md:w-[30vw] lg:w-[15vw] h-fit p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative"
+            >
+              <img class="rounded-lg" src="Media/card1.jpg" alt="image" />
+              <div
+                class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-10 lg:h-10 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[90px] right-4 sm:bottom-[100px] sm:right-12 md:right-6 lg:bottom-[122px] lg:right-3 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
+              >
+                <img
+                  class="w-7 sm:w-8 lg:w-6"
+                  src="Media/play.svg"
+                  alt="play"
+                />
+              </div>
+              <h2 class="text-lg sm:text-xl p-1">lofi beats</h2>
+              <p class="text-sm sm:text-base pl-1 text-[#919191]">
                 chill beats, lofi vibes, new tracks every week...
               </p>
             </div>
           </div>
           <div
-            class="playbar absolute bottom-1 bg-[#333333] rounded-lg w-[73vw] p-3 h-14 md:w-full"
+            class="playbar fixed bottom-0 bg-[#333333] rounded-lg p-3 min-h-14 w-[98%] sm:w-[99%] xl:w-[65%]"
           >
             <div
-              class="seekbar bg-white h-1 w-[72vw] absolute bottom-2 rounded-lg cursor-pointer md:w-[96vw]"
+              class="seekbar bg-white h-[2px] sm:h-1 w-[95%] absolute bottom-2 rounded-lg cursor-pointer sm:w-[98%]"
             >
               <div
-                class="circle w-3 h-3 rounded-full bg-white relative bottom-1 left-0 cursor-pointer"
+                class="circle w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white relative sm:bottom-1 bottom-[2.8px] left-0 cursor-pointer"
               ></div>
             </div>
-            <div class="flex justify-between">
-              <div class="songInfo"></div>
-              <div class="songBtns flex justify-center gap-3 invert">
+            <div
+              class="flex sm:flex-row flex-col gap-1 items-center text-[12px] sm:text-base sm:mb-2 sm:justify-between sm:items-center sm:h-12"
+            >
+              <div class="songInfo sm:w-[200px]"></div>
+              <div
+                class="songBtns flex justify-center items-center gap-3 invert w-4 sm:w-6"
+              >
                 <img
                   class="cursor-pointer"
                   id="previous"
@@ -193,7 +279,15 @@
                   alt=""
                 />
               </div>
-              <div class="songTime"></div>
+              <div class="timeAndVol flex gap-6 items-center">
+                <div class="songTime"></div>
+                <div class="volume flex items-center justify-center gap-5">
+                  <img class="invert" src="Media/volume.svg" alt="" />
+                  <div class="range">
+                    <input class="h-1" type="range" name="volume" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
