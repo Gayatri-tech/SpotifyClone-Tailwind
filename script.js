@@ -1,3 +1,4 @@
+alert("heyyy");
 let currentSong = new Audio();
 let play = document.getElementById("play");
 let songs;
