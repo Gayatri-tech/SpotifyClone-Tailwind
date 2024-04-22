@@ -107,7 +107,7 @@ async function displayAlbums() {
       let response = await a.json();
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
-      class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] h-full p-2  rounded-lg hover:bg-[#25252580] cursor-pointer relative "
+      class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative "
     >
       <img class="rounded-lg" src="songs/${currFolder}/cover.jpg" alt="image" />
       <div
