@@ -100,9 +100,9 @@ async function displayAlbums() {
       console.log(currFolder);
 
       // get metadata of folder
-      let a = await fetch(`songs/${currFolder}/info.json`);
+      let b = await fetch(`songs/${currFolder}/info.json`);
       console.log(`songs/${currFolder}/info.json`);
-      let response = await a.json();
+      let response = await b.json();
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
       class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative "
