@@ -26,7 +26,6 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
   currFolder = folder;
-  console.log("The current folder is:", currFolder);
   let a = await fetch(`http://127.0.0.1:5500/${currFolder}/`);
 
   let response = await a.text();
@@ -39,7 +38,6 @@ async function getSongs(folder) {
     const element = anchorTags[index];
     if (element.href.endsWith(".mp3")) {
       songs.push(element.href.split(`${currFolder}/`)[1]);
-      console.log(element.href.split(`${currFolder}/`)[1]);
     }
   }
 
@@ -99,14 +97,12 @@ async function displayAlbums() {
 
     if (e.href.includes("songs/")) {
       let currFolder = e.href.split("/").slice(-1)[0];
-      console.log(currFolder);
 
       // get metadata of folder
       let b = await fetch(
         `http://127.0.0.1:5500/songs/${currFolder}/info.json`
       );
       let response = await b.json();
-      console.log(response);
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
       class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative "
