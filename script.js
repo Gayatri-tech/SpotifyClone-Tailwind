@@ -27,7 +27,7 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
   currFolder = folder;
   console.log("The current folder is:", currFolder);
-  let a = await fetch(`/${folder}/`);
+  let a = await fetch(`${currFolder}/`);
 
   let response = await a.text();
 
@@ -101,7 +101,7 @@ async function displayAlbums() {
       console.log(currFolder);
 
       // get metadata of folder
-      let b = await fetch(`/songs/${currFolder}/info.json`);
+      let b = await fetch(`songs/${currFolder}/info.json`);
       let response = await b.json();
       console.log(response);
       cardContainer.innerHTML += `  <div
