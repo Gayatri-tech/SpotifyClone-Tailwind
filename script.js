@@ -97,9 +97,11 @@ async function displayAlbums() {
 
     if (e.href.includes("songs/")) {
       let currFolder = e.href.split("/").slice(-1)[0];
+      console.log(currFolder);
 
       // get metadata of folder
       let a = await fetch(`songs/${currFolder}/info.json`);
+      console.log(`songs/${currFolder}/info.json`);
       let response = await a.json();
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
