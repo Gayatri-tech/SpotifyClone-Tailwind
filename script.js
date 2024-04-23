@@ -26,7 +26,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`${currFolder}/`);
+  let a = await fetch(`/${currFolder}/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -36,7 +36,7 @@ async function getSongs(folder) {
   for (let index = 0; index < anchorTags.length; index++) {
     const element = anchorTags[index];
     if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split(`${currFolder}/`)[1]);
+      songs.push(element.href.split(`/${currFolder}/`)[1]);
     }
   }
 
@@ -76,7 +76,7 @@ async function getSongs(folder) {
 
 const playMusic = (track, pause = false) => {
   // let audio = new Audio("/songs/" + track);
-  currentSong.src = `${currFolder}/` + track;
+  currentSong.src = `/${currFolder}/` + track;
 
   if (!pause) {
     currentSong.play();
@@ -87,7 +87,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`songs/`);
+  let a = await fetch(`/songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -101,13 +101,13 @@ async function displayAlbums() {
       let currFolder = e.href.split("/").slice(-1)[0];
 
       // get metadata of folder
-      let a = await fetch(`songs/${currFolder}/info.json`);
+      let a = await fetch(`/songs/${currFolder}/info.json`);
       let response = await a.json();
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
       class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative "
     >
-      <img class="rounded-lg" src="songs/${currFolder}/cover.jpg" alt="image" />
+      <img class="rounded-lg" src="/songs/${currFolder}/cover.jpg" alt="image" />
       <div
         class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-12 lg:h-12 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[70px] right-5 sm:bottom-[80px] md:bottom-[75px] sm:right-12 md:right-6 lg:bottom-[80px] lg:right-4 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
       >
