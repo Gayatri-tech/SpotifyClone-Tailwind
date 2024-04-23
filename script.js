@@ -1,5 +1,3 @@
-const baseURL = window.location.origin;
-
 let currentSong = new Audio();
 let play = document.getElementById("play");
 let songs;
@@ -28,7 +26,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`${baseURL}/${currFolder}/`);
+  let a = await fetch(`${currFolder}/`);
 
   let response = await a.text();
 
@@ -87,7 +85,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`${baseURL}/songs/`);
+  let a = await fetch(`songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -101,7 +99,7 @@ async function displayAlbums() {
       let currFolder = e.href.split("/").slice(-1)[0];
 
       // get metadata of folder
-      let b = await fetch(`${baseURL}/${currFolder}/info.json`);
+      let b = await fetch(`${currFolder}/info.json`);
       let response = await b.json();
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
