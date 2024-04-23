@@ -97,7 +97,7 @@ async function displayAlbums() {
   for (let index = 0; index < arr.length; index++) {
     const e = arr[index];
 
-    if (e.href.includes("/songs/")) {
+    if (e.href.includes("songs/")) {
       let currFolder = e.href.split("/").slice(-1)[0];
 
       // get metadata of folder
