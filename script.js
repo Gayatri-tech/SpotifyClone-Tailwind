@@ -27,7 +27,8 @@ function secondsToMinutesSeconds(seconds) {
 async function getSongs(folder) {
   currFolder = folder;
   console.log(currFolder);
-  let a = await fetch(`${currFolder}/`);
+  let a = await fetch(`/${folder}/`);
+
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -100,9 +101,9 @@ async function displayAlbums() {
       console.log(currFolder);
 
       // get metadata of folder
-      let b = await fetch(`songs/${currFolder}/info.json`);
-      console.log(`songs/${currFolder}/info.json`);
+      let b = await fetch(`/songs/${currFolder}/info.json`);
       let response = await b.json();
+      console.log(response);
       cardContainer.innerHTML += `  <div
       data-folder="${currFolder}"
       class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative "
