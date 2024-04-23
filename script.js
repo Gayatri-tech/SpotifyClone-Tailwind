@@ -49,7 +49,9 @@ async function getSongs(folder) {
     .getElementsByTagName("ol")[0];
   songsList.innerHTML = "";
   for (const song of songs) {
-    songsList.innerHTML += `
+    songsList.innerHTML =
+      songsList.innerHTML +
+      `
     <li
     class="flex m-2  p-2 cursor-pointer border border-gray-600 rounded-md justify-between gap-2 items-center"
   >
