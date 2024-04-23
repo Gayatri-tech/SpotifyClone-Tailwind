@@ -39,7 +39,7 @@ async function getSongs(folder) {
     const element = anchorTags[index];
     if (element.href.endsWith(".mp3")) {
       songs.push(element.href.split(`${currFolder}/`)[1]);
-      console.log(element.href.split(`${currFolder}/`));
+      console.log(element.href.split(`${currFolder}/`)[1]);
     }
   }
 
@@ -49,9 +49,7 @@ async function getSongs(folder) {
     .getElementsByTagName("ol")[0];
   songsList.innerHTML = "";
   for (const song of songs) {
-    songsList.innerHTML =
-      songsList.innerHTML +
-      `
+    songsList.innerHTML += `
     <li
     class="flex m-2  p-2 cursor-pointer border border-gray-600 rounded-md justify-between gap-2 items-center"
   >
