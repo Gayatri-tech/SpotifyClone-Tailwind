@@ -38,7 +38,7 @@ async function getSongs(folder) {
     songs.forEach((song) => {
       songsList.innerHTML += `
         <li class="flex m-2 p-2 cursor-pointer border border-gray-600 rounded-md justify-between gap-2 items-center">
-          <img class="invert w-5" src="Media/music.svg" alt="music" />
+          <img class="invert w-5" src="Media/images/music.svg" alt="music" />
           <div class="info text-sm w-36">
             <div>${decodeURI(
               song.replaceAll("%20", " ").replaceAll("%26", " ")
@@ -46,7 +46,7 @@ async function getSongs(folder) {
           </div>
           <div class="playNow flex items-center gap-2 text-sm">
             <span>Play now</span>
-            <img class="invert w-6" src="Media/playBtn.svg" alt="" />
+            <img class="invert w-6" src="Media/images/playBtn.svg" alt="" />
           </div>
         </li>`;
     });
@@ -68,7 +68,7 @@ const playMusic = (track, pause = false) => {
   // console.log(currentSong.src);
   if (!pause) {
     currentSong.play();
-    play.src = "Media/pauseBtn.svg";
+    play.src = "Media/images/pauseBtn.svg";
   }
   document.querySelector(".songInfo").innerHTML = decodeURI(track);
   document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
@@ -77,7 +77,7 @@ const playMusic = (track, pause = false) => {
 // Function to display albums
 async function displayAlbums() {
   try {
-    let response = await fetch(`/songs/`);
+    let response = await fetch(`/Media/songs/`);
     let htmlContent = await response.text();
     let div = document.createElement("div");
     div.innerHTML = htmlContent;
@@ -85,13 +85,13 @@ async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
     songs = [];
     anchors.forEach((e) => {
-      if (e.href.includes("songs/")) {
+      if (e.href.includes("/Media/songs/")) {
         let currFolder = e.href.split("/").pop();
         cardContainer.innerHTML += `  
           <div data-folder="${currFolder}" class="group card w-auto xs:w-auto sm:w-auto md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[15vw] p-2 rounded-lg hover:bg-[#25252580] cursor-pointer relative">
-            <img class="rounded-lg" src="songs/${currFolder}/cover.jpg" alt="image" />
+            <img class="rounded-lg" src="/Media/songs/${currFolder}/cover.jpg" alt="image" />
             <div class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-12 lg:h-12 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[70px] right-5 sm:bottom-[80px] md:bottom-[75px] sm:right-12 md:right-6 lg:bottom-[80px] lg:right-4 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110">
-              <img class="w-7 sm:w-8 lg:w-6" src="Media/play.svg" alt="play" />
+              <img class="w-7 sm:w-8 lg:w-6" src="Media/images/play.svg" alt="play" />
             </div>
             <h2 class="text-sm sm:text-base p-1">${htmlContent.title}</h2>
             <p class="text-xs sm:text-sm pl-1 text-[#919191]">${htmlContent.description}</p>
@@ -102,7 +102,9 @@ async function displayAlbums() {
     cardContainer.querySelectorAll(".card").forEach((e) => {
       e.addEventListener("click", async (event) => {
         console.log("Fetching Songs");
-        songs = await getSongs(`songs/${event.currentTarget.dataset.folder}`);
+        songs = await getSongs(
+          `/Media/songs/${event.currentTarget.dataset.folder}`
+        );
         playMusic(songs[0]);
       });
     });
@@ -115,7 +117,7 @@ async function displayAlbums() {
 async function main() {
   try {
     // Fetch songs and display albums
-    await getSongs("songs/lofi_beats");
+    await getSongs("/Media/songs/lofi_beats");
     playMusic(songs[0], true);
     await displayAlbums();
 
@@ -123,10 +125,10 @@ async function main() {
     play.addEventListener("click", () => {
       if (currentSong.paused) {
         currentSong.play();
-        play.src = "Media/pauseBtn.svg";
+        play.src = "Media/images/pauseBtn.svg";
       } else {
         currentSong.pause();
-        play.src = "Media/playBtn.svg";
+        play.src = "Media/images/playBtn.svg";
       }
     });
 
@@ -169,7 +171,7 @@ async function main() {
     // Event listener for next button
     next.addEventListener("click", () => {
       currentSong.pause();
-      play.src = "Media/playBtn.svg";
+      play.src = "Media/images/playBtn.svg";
 
       let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
       if (index + 1 < songs.length) {
