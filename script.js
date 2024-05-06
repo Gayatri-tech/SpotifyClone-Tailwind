@@ -76,7 +76,7 @@ const playMusic = (track, pause = false) => {
 // Function to display albums
 async function displayAlbums() {
   try {
-    let response = await fetch(`songs/`);
+    let response = await fetch(`/songs/`);
     let htmlContent = await response.text();
     let div = document.createElement("div");
     div.innerHTML = htmlContent;
@@ -92,8 +92,8 @@ async function displayAlbums() {
             <div class="play bg-green-500 w-12 h-12 sm:w-16 sm:h-16 md:w-14 md:h-14 lg:w-12 lg:h-12 lg:p-3 sm:p-4 p-3 rounded-full absolute bottom-[70px] right-5 sm:bottom-[80px] md:bottom-[75px] sm:right-12 md:right-6 lg:bottom-[80px] lg:right-4 xl:bottom-[100px] 2xl:right-24 2xl:bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform translate-y-2 group-hover:translate-y-0 hover:scale-110">
               <img class="w-7 sm:w-8 lg:w-6" src="Media/play.svg" alt="play" />
             </div>
-            <h2 class="text-sm sm:text-base p-1">${response.title}</h2>
-            <p class="text-xs sm:text-sm pl-1 text-[#919191]">${response.description}</p>
+            <h2 class="text-sm sm:text-base p-1">${htmlContent.title}</h2>
+            <p class="text-xs sm:text-sm pl-1 text-[#919191]">${htmlContent.description}</p>
           </div>`;
         songs.push(currFolder);
       }
